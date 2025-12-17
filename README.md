@@ -80,18 +80,6 @@ llm-engineering-lab/
 - [Prompt Registry Guide](02-prompt-registry/README.md)
 - [Evaluation Framework](03-prompt-evaluation/README.md)
 
-## 🧪 Testing
-
-```bash
-# Test package imports
-python -c "from common import load_env; print('✅ common')"
-python -c "from client.llm_client import LLMClient; print('✅ llm-playground')"
-
-# Run projects
-poe run-playground
-poe run-registry
-poe run-evaluation
-```
 
 ## 📝 Requirements
 
@@ -107,8 +95,6 @@ poe run-evaluation
    ```
 
 2. Optional: Create project-specific `.env` files to override defaults
-
-See [QUICKSTART.md](QUICKSTART.md) for detailed installation.
 
 ---
 

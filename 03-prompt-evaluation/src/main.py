@@ -1,11 +1,11 @@
 import yaml
 from common import load_env
 from client.llm_client import LLMClient
-from models.llm_request import LLMRequest
 from pathlib import Path
 
 # Add local modules to path
 import sys
+
 sys.path.insert(0, str(Path(__file__).parent))
 
 from registry.prompt_registry import PromptRegistry
@@ -21,14 +21,9 @@ if __name__ == "__main__":
     renderer = PromptRenderer(registry)
     client = LLMClient()
     runner = EvaluationRunner(client, registry, renderer)
-    result = runner.run(
-        prompt_name="cap_theorem_explainer", 
-        versions= ["v1", "v2"], 
-        dataset=dataset)
+    result = runner.run(prompt_name="cap_theorem_explainer", versions=["v1", "v2"], dataset=dataset)
     for version, outputs in result.items():
         print(f"Results for  {version}")
         for output in outputs:
             print(output["output"])
             print(output["latency_ms"])
-          
-    

@@ -1,8 +1,9 @@
 import yaml
 from pathlib import Path
 
+
 class PromptRegistry:
-    def __init__(self, registry_path: str ):
+    def __init__(self, registry_path: str):
         self.registry_path = Path(registry_path)
 
     def load(self, prompt_name: str, version: str):
