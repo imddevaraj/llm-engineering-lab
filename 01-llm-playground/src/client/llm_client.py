@@ -1,4 +1,4 @@
-import os
+from config import settings
 from openai import OpenAI
 from models.llm_request import LLMRequest
 from utils.metrics import Metrics
@@ -6,8 +6,8 @@ from utils.metrics import Metrics
 
 class LLMClient:
     def __init__(self):
-        # Initialize OpenAI client here (after dotenv loads in main)
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        # Initialize OpenAI client using Pydantic settings
+        self.client = OpenAI(api_key=settings.openai_api_key)
 
     def execute(self, request: LLMRequest):
         # Initialize enhanced metrics

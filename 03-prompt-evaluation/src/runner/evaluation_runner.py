@@ -1,9 +1,11 @@
 from models.llm_request import LLMRequest
+from client.llm_client import LLMClient
 
 
 class EvaluationRunner:
-    def __init__(self, client, registry, renderer):
-        self.llm_client = client
+    def __init__(self, registry, renderer, client: LLMClient = None):
+
+        self.llm_client = client if client is not None else LLMClient()
         self.registry = registry
         self.renderer = renderer
 

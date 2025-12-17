@@ -1,16 +1,14 @@
 from client.llm_client import LLMClient
 from models.llm_request import LLMRequest
-from common import load_env
+from config import settings  # Pydantic settings auto-loads .env
 
-load_env(__file__)
-if __name__ == "__main__":
-    req = LLMRequest(
-        system_prompt="You are a precise assistant.",
-        user_prompt="Explain CAP theorem in 3 bullet points.",
-    )
 
-    client = LLMClient()
-    result = client.execute(req)
+def call_llm(system_prompt, user_prompt, client: LLMClient = LLMClient()):
+    request = LLMRequest(system_prompt=system_prompt, user_prompt=user_prompt)
+    return client.execute(request)
+
+
+def console(result):
 
     print("\n--- OUTPUT ---")
     print(result["output"])
@@ -18,3 +16,12 @@ if __name__ == "__main__":
     print("\n--- METRICS ---")
     print(f"Latency: {result['latency_ms']} ms")
     print(f"Tokens: {result['usage']}")
+
+
+if __name__ == "__main__":
+    output = call_llm(
+        system_prompt="You are a precise assistant.",
+        user_prompt="Explain CAP theorem in 3 bullet points.",
+    )
+
+    console(output)

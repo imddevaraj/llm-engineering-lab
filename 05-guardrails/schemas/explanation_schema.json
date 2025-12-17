@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "summary": {
+            "type": "string",
+            "description": "Concise explanation"
+        },
+        "confidence": {
+            "type": "number",
+            "description": "Confidence level",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "sources_used": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "summary",
+        "confidence",
+        "sources_used"
+    ]
+}

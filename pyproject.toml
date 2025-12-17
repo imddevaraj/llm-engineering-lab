@@ -8,8 +8,10 @@ version = "0.1.0"
 description = "LLM Engineering Lab - Learning production LLM systems"
 requires-python = ">=3.12"
 dependencies = [
-    "openai>=1.0.0",
+    "openai>=1.6.0",
     "python-dotenv>=1.0.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
     "tiktoken>=0.7.0",
     "pyyaml>=5.1",
 ]
@@ -19,6 +21,8 @@ dev = [
     "poethepoet>=0.24.0",
     "black>=23.0.0",
     "ruff>=0.1.0",
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
 ]
 
 [tool.setuptools]
@@ -38,6 +42,25 @@ sync = "uv pip sync requirements.txt"
 run-client = { cmd = "python src/main.py", cwd = "01-llm-playground" }
 run-registry = { cmd = "python src/main.py", cwd = "02-prompt-registry" }
 run-eval = { cmd = "python src/main.py", cwd = "03-prompt-evaluation" }
+run-hallucination = { cmd = "python src/main.py", cwd = "04-hallucination-lab" }
+
+# Testing
+test-client = { cmd = "pytest tests/ -v", cwd = "01-llm-playground" }
+test-client-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "01-llm-playground" }
+test-registry = { cmd = "pytest tests/ -v", cwd = "02-prompt-registry" }
+test-registry-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "02-prompt-registry" }
+test-evaluation = { cmd = "pytest tests/ -v", cwd = "03-prompt-evaluation" }
+test-evaluation-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "03-prompt-evaluation" }
+test-hallucination = { cmd = "pytest tests/ -v", cwd = "04-hallucination-lab" }
+test-hallucination-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "04-hallucination-lab" }
+
+test-all = { sequence = [
+    { cmd = "poe test-client" },
+    { cmd = "poe test-registry" },
+    { cmd = "poe test-evaluation" },
+    { cmd = "poe test-hallucination" },
+]}
+
 
 # Code quality
 format = "black ."
