@@ -1,7 +1,7 @@
 from client.llm_client import LLMClient
 from models.llm_request import LLMRequest
-from dotenv import load_dotenv
-load_dotenv()
+from common import load_env
+load_env(__file__)
 if __name__ == "__main__":
     req = LLMRequest(
         system_prompt="You are a precise assistant.",

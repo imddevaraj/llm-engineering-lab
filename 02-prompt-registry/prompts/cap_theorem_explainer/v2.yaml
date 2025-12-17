@@ -1,0 +1,11 @@
+name: cap_theorem_explainer 
+version: v1
+description: Explains the CAP theorem clearly and concisely
+model-defaults:
+  temperature: 0.5
+  max_tokens: 150
+system_prompt: |
+  You are a precise assistant.
+  Answer clearly without unnecessary verbosity.
+user_prompt: |
+  Explain the CAP theorem in {{format}} with simple examples.

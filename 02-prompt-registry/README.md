@@ -5,7 +5,7 @@ parameterized, and testable artifacts.
 
 Prompts are no longer hardcoded strings — they are **managed assets**.
 
---
+---
 ##  Problem Statement
 
 Hardcoded prompts cause:

@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-engineering-lab"
+version = "0.1.0"
+description = "LLM Engineering Lab - Learning production LLM systems"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "tiktoken>=0.7.0",
+    "pyyaml>=5.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "poethepoet>=0.24.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.setuptools]
+packages = []  # Workspace, no packages at root
+
+# Poe task runner configuration
+[tool.poe.tasks]
+# Installation - use sequence to run multiple commands
+install.sequence = [
+    { cmd = "uv pip install -e common/ -e 01-llm-playground/ -e 02-prompt-registry/" },
+]
+install.help = "Install all dependencies with uv"
+
+sync = "uv pip sync requirements.txt"
+
+# Run projects
+run-client = { cmd = "python src/main.py", cwd = "01-llm-playground" }
+run-registry = { cmd = "python src/main.py", cwd = "02-prompt-registry" }
+run-eval = { cmd = "python src/main.py", cwd = "03-prompt-evaluation" }
+
+# Code quality
+format = "black ."
+format-check = "black --check ."
+lint = "ruff check ."
+lint-fix = "ruff check --fix ."
+
+# Utility
+clean = "find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true"
+list = "poe --help"
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

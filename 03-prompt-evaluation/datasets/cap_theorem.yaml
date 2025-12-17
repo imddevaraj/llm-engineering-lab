@@ -1,0 +1,11 @@
+task: cap_theorem_explanation
+description: Evaluate prompt quality for CAP theorem explanation
+cases:
+  - id: case_01
+    input:
+      format: "3 bullet points"
+    expected_traits:
+      - mentions consistency
+      - mentions availability
+      - mentions partition tolerance
+      - concise
