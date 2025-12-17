@@ -2,10 +2,6 @@ from client.llm_client import LLMClient
 from models.llm_request import LLMRequest
 from pathlib import Path
 
-# Add local modules to path for registry and renderer
-import sys
-
-sys.path.insert(0, str(Path(__file__).parent))
 
 from registry.prompt_registry import PromptRegistry
 from renderer.prompt_renderer import PromptRenderer

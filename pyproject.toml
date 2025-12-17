@@ -12,6 +12,7 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "pydantic>=2.0",
     "pydantic-settings>=2.0",
+    "jsonschema>=4.0.0",
     "tiktoken>=0.7.0",
     "pyyaml>=5.1",
 ]
@@ -43,6 +44,7 @@ run-client = { cmd = "python src/main.py", cwd = "01-llm-playground" }
 run-registry = { cmd = "python src/main.py", cwd = "02-prompt-registry" }
 run-eval = { cmd = "python src/main.py", cwd = "03-prompt-evaluation" }
 run-hallucination = { cmd = "python src/main.py", cwd = "04-hallucination-lab" }
+run-guardrails = { cmd = "python src/main.py", cwd = "05-guardrails" }
 
 # Testing
 test-client = { cmd = "pytest tests/ -v", cwd = "01-llm-playground" }
