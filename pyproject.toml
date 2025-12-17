@@ -45,7 +45,7 @@ run-registry = { cmd = "python src/main.py", cwd = "02-prompt-registry" }
 run-eval = { cmd = "python src/main.py", cwd = "03-prompt-evaluation" }
 run-hallucination = { cmd = "python src/main.py", cwd = "04-hallucination-lab" }
 run-guardrails = { cmd = "python src/main.py", cwd = "05-guardrails" }
-
+run-react = { cmd = "python src/main.py", cwd = "06-react-pattern" }
 # Testing
 test-client = { cmd = "pytest tests/ -v", cwd = "01-llm-playground" }
 test-client-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "01-llm-playground" }
