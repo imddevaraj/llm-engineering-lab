@@ -31,3 +31,44 @@ This module introduces:
 
 ##  Agent Loop Flow
 
+Question
+↓
+Thought
+↓
+Action → Tool Execution
+↓
+Observation
+↓
+Repeat or Final Answer
+
+
+---
+
+##  Pattern Introduced
+
+### Autonomous Agent Loop Pattern
+
+**Benefits**
+- Real autonomy
+- Deterministic execution
+- Debuggable behavior
+- Foundation for multi-agent systems
+
+**Anti-Pattern**
+- ❌ One-shot ReAct prompting
+
+---
+
+##  Known Limitations
+
+- Single-agent only
+- No parallel actions
+- No retries or fallbacks
+- No evaluation or scoring
+
+These are intentional and addressed in future days.
+
+---
+
+
+
