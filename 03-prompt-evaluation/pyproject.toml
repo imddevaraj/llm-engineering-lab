@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-evaluation"
+version = "0.1.0"
+description = "Prompt Evaluation for LLM Engineering Lab"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "tiktoken>=0.7.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
