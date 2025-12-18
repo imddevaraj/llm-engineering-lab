@@ -34,7 +34,8 @@ packages = []  # Workspace, no packages at root
 # Installation - use sequence to run multiple commands
 install.sequence = [
     { cmd = "uv pip install -e common/ -e 01-llm-playground/ -e 02-prompt-registry/ -e 03-prompt-evaluation/ -e 04-hallucination-lab/ -e 05-guardrails/ -e 06-react-pattern/ " },
-]
+    { cmd = "uv pip install -e 07-agent-loop-and-multistep-planning/ " },
+    ]
 install.help = "Install all dependencies with uv"
 
 sync = "uv pip sync requirements.txt"
@@ -47,6 +48,8 @@ run-hallucination = { cmd = "python src/main.py", cwd = "04-hallucination-lab" }
 run-guardrails = { cmd = "python src/main.py", cwd = "05-guardrails" }
 run-react = { cmd = "python src/main.py", cwd = "06-react-pattern" }
 run-agent-loop = { cmd = "python src/main.py", cwd = "07-agent-loop-and-multistep-planning" }
+run-agent-memory = { cmd = "python src/main.py", cwd = "08-agent-memory" }
+
 # Testing
 test-client = { cmd = "pytest tests/ -v", cwd = "01-llm-playground" }
 test-client-cov = { cmd = "pytest tests/ -v --cov=src --cov-report=term-missing", cwd = "01-llm-playground" }
