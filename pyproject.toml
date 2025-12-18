@@ -35,6 +35,8 @@ packages = []  # Workspace, no packages at root
 install.sequence = [
     { cmd = "uv pip install -e common/ -e 01-llm-playground/ -e 02-prompt-registry/ -e 03-prompt-evaluation/ -e 04-hallucination-lab/ -e 05-guardrails/ -e 06-react-pattern/ " },
     { cmd = "uv pip install -e 07-agent-loop-and-multistep-planning/ " },
+    { cmd = "uv pip install -e 08-agent-memory/"},
+    { cmd = "uv pip install -e 09-planner-executor-pattern/"}
     ]
 install.help = "Install all dependencies with uv"
 
@@ -49,6 +51,7 @@ run-guardrails = { cmd = "python src/main.py", cwd = "05-guardrails" }
 run-react = { cmd = "python src/main.py", cwd = "06-react-pattern" }
 run-agent-loop = { cmd = "python src/main.py", cwd = "07-agent-loop-and-multistep-planning" }
 run-agent-memory = { cmd = "python src/main.py", cwd = "08-agent-memory" }
+run-planner-executor = { cmd = "python src/main.py", cwd = "09-planner-executor-pattern" }
 
 # Testing
 test-client = { cmd = "pytest tests/ -v", cwd = "01-llm-playground" }

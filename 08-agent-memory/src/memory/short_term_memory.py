@@ -24,3 +24,4 @@ class ShortTermMemory:
                 Action: {step['action']}
                 Observation: {step['observation']}
             """
+        return text.strip()

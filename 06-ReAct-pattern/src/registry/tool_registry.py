@@ -17,3 +17,4 @@ class ToolRegistry:
     def list_tools(self):
         """Return dictionary of tool names and descriptions for agent."""
         return {name: info["description"] for name, info in self.tools.items()}
+    
